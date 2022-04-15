@@ -2,7 +2,7 @@
 
 青龙拉库命令:
 
-	ql repo https://github.com/gdfsnhsw/QLScript.git "jd_speed_sign_Part1.js|jd_speed_sign_Part2.js|jd_speed_sign_Part3.js" "NoUsed" "ql|utils|jdCookie.js|sendNotify.js|JS_USER_AGENTS"
+	ql repo https://github.com/gdfsnhsw/QLScript.git "jd_speed_sign_Part1.js|jd_speed_sign_Part2.js|jd_speed_sign_Part3.js" "NoUsed" "ql|utils|jdCookie.js|sendNotify.js|JS_USER_AGENTS|USER_AGENTS.js"
 
 # jd_speed_sign_Part1~jd_speed_sign_Part3
 简单粗暴的极速版的分任务版，将总ck数除以3后平均分配成三个任务同时执行.
