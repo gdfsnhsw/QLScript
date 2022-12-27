@@ -1,11 +1,11 @@
 
 /*
-穿越寻宝组队奖励领取
-10 10 10 10 * jd_cxxb_award.js
-updatetime：2022/10/23
+炸年兽组队奖励领取
+40 22 * * * jd_zns_award1.js
+updatetime：2022/12/26
  */
 
-const $ = new Env('穿行组队奖励领取');
+const $ = new Env('炸年兽组队奖励领取');
 const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let jdNotify = true;
@@ -40,6 +40,8 @@ if ($.isNode()) {
 				}
 				continue;
 			}
+			await run('promote_pk_getAmountForecast');
+			await $.wait(1000);
 			await run('promote_pk_receiveAward');
 			await $.wait(1000);
 			await run('promote_pk_divideScores');
@@ -74,7 +76,7 @@ function run(fn) {
 			try {
 				if (err) {
 					console.log(`${JSON.stringify(err)}`)
-					console.log(`promote_getWelfareScore 请求失败，请检查网路重试`)
+					console.log(`请求失败，请检查网路重试`)
 				} else {
 					if (safeGet(data)) {
 						data = JSON.parse(data);
@@ -82,7 +84,7 @@ function run(fn) {
 							if (data.data && data.data.bizCode === 0) {
 								if (fn === 'promote_pk_receiveAward') {
 									console.log('领取组队红包：' + data.data.result.value);
-								} else {
+								} else if (fn === 'promote_pk_divideScores'){
 									console.log('领取组队金币：' + data.data.result.produceScore)
 								}
 							} else {
@@ -90,7 +92,7 @@ function run(fn) {
 
 							}
 						} else {
-							console.log(`分享失败:${JSON.stringify(data)}\n`)
+							console.log(`失败:${JSON.stringify(data)}\n`)
 							resolve()
 						}
 					}
