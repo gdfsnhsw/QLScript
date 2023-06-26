@@ -8,7 +8,7 @@ cron "1 1 1 1 1" jd_wxCartKoi.js
 require("global-agent/bootstrap");
 global.GLOBAL_AGENT.HTTP_PROXY="http://192.168.88.19:9090";
 
-const $ = new Env('ZH-购物车锦鲤通用活动');
+const $ = new Env('zh_购物车锦鲤通用活动');
 const jdCookieNode=$.isNode()?require('./jdCookie.js'):'';
 const notify=$.isNode()?require('./sendNotify'):'';
 
