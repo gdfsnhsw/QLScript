@@ -9,6 +9,10 @@ export jd_lzdz1_openCard="1"                #常规卡是否开卡 0-不开卡  
 
 cron "2 2 29 2 *" jd_opencard_common.js
 */
+
+require("global-agent/bootstrap");
+global.GLOBAL_AGENT.HTTP_PROXY="http://192.168.88.19:9090";
+
 const $ = new Env('常规卡通用')
 
 
